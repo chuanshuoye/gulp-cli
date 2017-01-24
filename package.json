@@ -1,0 +1,42 @@
+{
+  "name": "gulp-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "gulp-cli": "bin/gulp-cli",
+    "gulp-cli-init": "bin/gulp-cli-init",
+    "gulp-cli-list": "bin/gulp-cli-list",
+    "gulp-cli-build": "bin/gulp-cli-build"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuanshuoye/gulp-cli.git"
+  },
+  "keywords": [
+    "gulp",
+    "css",
+    "scss"
+  ],
+  "author": "yezhanwang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuanshuoye/gulp-cli/issues"
+  },
+  "homepage": "https://github.com/chuanshuoye/gulp-cli#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "download-git-repo": "^0.2.1",
+    "inquirer": "^3.0.1",
+    "ora": "^1.1.0",
+    "rimraf": "^2.5.4",
+    "uid": "^0.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^3.1.4"
+  }
+}
