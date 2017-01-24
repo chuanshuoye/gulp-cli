@@ -19,15 +19,26 @@ program
     .option('-c, --clone', 'use git clone')
 
 program.parse(process.argv);
+
+
 /**
  * Download a generate from a template repo.
  *
  * @param {String} template
  */
-// console.log(program)
-var template = program.args[0]
-var tmp = __dirname + "\\" + template
-var spinner = ora('downloading template')
-download("github:chuanshuoye/vue-project-frame", tmp, function(err) {
-    if (err) console.log('Failed to download repo ' + template + ': ' + err.message.trim())
+var tmp = os.tmpdir() + '/gulp-project-' + uid()
+var rawName = program.args[0]
+var inPlace = !rawName || rawName === '.'
+var name = inPlace ? path.relative('../', process.cwd()) : rawName
+var to = path.resolve(rawName || '.')
+var spinner = ora('downloading template...')
+console.log('download repo ' + rawName)
+spinner.start()
+download("github:chuanshuoye/vue-project-frame", to, function(err) {
+	spinner.stop()
+    process.on('exit', function () {
+      rm(tmp)
+    })
+    if (err) console.log('Failed to download repo ' + rawName + ': ' + err.message.trim())
+    console.log('download repo success' + rawName)
 })
